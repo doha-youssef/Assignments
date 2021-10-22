@@ -15,24 +15,36 @@ public class TV
     }
     public void setChannel(int newChannel)
     {
-        channel=newChannel;
+        if(on && (newChannel  >= 1 && newChannel <= 120))
+            channel=newChannel;
     }
     public void setVolume(int newVolume)
     {
+        if(on && (newVolume  >= 1 && newVolume <= 7))
         volumeLevel=newVolume;
     }
     public void channelUp()
     {
-        channel++;
+        if(channel < 120 && on)
+            channel++;
     }
     public void channelDown()
     {
-        channel--;
+        if(channel > 1 && on)
+            channel--;
     }
     public void volumeUp()
     {
-        volumeLevel++;
+        if(volumeLevel < 7 && on)
+            volumeLevel++;
     }
+    public void volumeDown()
+    {
+        if(volumeLevel > 1 && on)
+            volumeLevel--;
+    }
+}
+
     public void volumeDown()
     {
         volumeLevel--;
